@@ -1,40 +1,23 @@
 const callsign = "ne5gg";
-const updateInterval = 5000; // Update every 5 seconds (adjust as needed)
+const marqueeElement = document.querySelector(".marquee");
 
-function fetchCallsignReports() {
-  const url = `https://db1.wspr.live/?query=SELECT * FROM wspr.rx WHERE callsign='${callsign}' LIMIT 10 FORMAT JSONCompact`;
+async function fetchReport() {
+  const url = `https://your-worker-url/`; // Replace with your Worker route
+  const response = await fetch(url);
 
-  fetch(url)
-    .then(function (data) {
-      if (data.ok) {
-        return data.json();
-      } else {
-        return data.text().then(text => Promise.reject(new Error("Request error: " + text)));
-      }
-    })
-    .then(jso => {
-      // Process and display the retrieved data
-      updateMarquee(jso);
-    })
-    .catch(error => {
-      console.error("Error fetching data:", error);
-    });
-}
-
-function updateMarquee(data) {
-  const marqueeElement = document.querySelector(".marquee");
-  let message = "";
-
-  if (data && data.length > 0) {
-    const latestReport = data[0];
-    message = `Callsign ${latestReport.callsign} heard at location ${latestReport.locator} with signal strength ${latestReport.snr}.`;
-  } else {
-    message = "No recent reports found.";
+  if (!response.ok) {
+    console.error("Error fetching data:", response.statusText);
+    return;
   }
 
-  marqueeElement.textContent = message;
+  const data = await response.json();
+
+  if (data) {
+    marqueeElement.textContent = `Callsign: ${data.callsign}, Location: ${data.locator}, Signal Strength: ${data.snr}`;
+  } else {
+    marqueeElement.textContent = "No recent reports found.";
+  }
 }
 
-// Initial fetch and start periodic updates
-fetchCallsignReports();
-setInterval(fetchCallsignReports, updateInterval);
+fetchReport();
+setInterval(fetchReport, 5000); // Update every 5 seconds (adjust as needed)
