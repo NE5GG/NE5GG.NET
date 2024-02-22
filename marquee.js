@@ -2,7 +2,7 @@ const callsign = "ne5gg";
 const marqueeElement = document.querySelector(".marquee");
 
 async function fetchReport() {
-  const url = `https://wsprreport.ne5gg.net/`; // Replace with your Worker route
+  const url = `https://ne5gg.net/wsprreport`; // Replace with your Worker route
   const response = await fetch(url);
 
   if (!response.ok) {
