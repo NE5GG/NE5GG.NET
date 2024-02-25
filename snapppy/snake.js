@@ -1,73 +1,9 @@
-
 var dotSize = 20;
 var gameBoardSize = 400;
 var direction = 'Right';
 var snake = [{ top: 0, left: 0 }];
 var food = null;
 
-function updateGame() {
-    var head = Object.assign({}, snake[0]); // copy head
-    switch(direction) {
-        case 'Left': head.left -= dotSize; break;
-        case 'Right': head.left += dotSize; break;
-        case 'Up': head.top -= dotSize; break;
-        case 'Down': head.top += dotSize; break;
-    }
-
-    if (head.top < 0 || head.left < 0 || head.top === gameBoardSize || head.left === gameBoardSize) {
-        return gameOver();
-    }
-
-    if (food && food.left === head.left && food.top === head.top) {
-        food = null;
-    } else {
-        snake.pop();
-    }
-
-    snake.unshift(head);
-
-    if (food === null) {
-        food = { top: Math.floor(Math.random() * gameBoardSize / dotSize) * dotSize, left: Math.floor(Math.random() * gameBoardSize / dotSize) * dotSize };
-    }
-
-    drawGame();
-}
-
-function drawGame() {
-    var gameBoard = document.getElementById('game-board');
-    gameBoard.innerHTML = '';
-    snake.forEach(function(dot) {
-        var dotElem = document.createElement('div');
-        dotElem.className = 'dot';
-        dotElem.style.left = `${dot.left}px`;
-        dotElem.style.top = `${dot.top}px`;
-        gameBoard.appendChild(dotElem);
-    });
-
-    var foodElem = document.createElement('div');
-    foodElem.className = 'food';
-    foodElem.style.left = `${food.left}px`;
-    foodElem.style.top = `${food.top}px`;
-    gameBoard.appendChild(foodElem);
-
-    document.getElementById('score').innerText = `Score: ${snake.length}`;
-}
-
-function gameOver() {
-    clearInterval(intervalId);
-    alert('Game over!');
-}
-
-document.addEventListener('keydown', function(e) {
-    switch(e.key) {
-        case 'ArrowUp': direction = 'Up'; break;
-        case 'ArrowDown': direction = 'Down'; break;
-        case 'ArrowLeft': direction = 'Left'; break;
-        case 'ArrowRight': direction = 'Right'; break;
-    }
-});
-
-var intervalId = setInterval(updateGame, 200);
 // Your existing Snake game code...
 
 document.addEventListener('keydown', function(e) {
@@ -144,7 +80,7 @@ window.addEventListener('devicemotion', function (e) {
     }
 
     if (moveCounter > 2) {
-        changeDirection(); // change direction of the snake
+        changeDirection(acc); // change direction of the snake
         moveCounter = 0;
     }
 
@@ -153,7 +89,14 @@ window.addEventListener('devicemotion', function (e) {
     lastZ = acc.z;
 });
 
-function changeDirection() {
-    // Change the direction of the snake
-    // This function needs to be implemented based on your game logic
+function changeDirection(acc) {
+    var accX = Math.abs(lastX - acc.x);
+    var accY = Math.abs(lastY - acc.y);
+    var accZ = Math.abs(lastZ - acc.z);
+
+    if (accX > accY && accX > accZ) {
+        direction = lastX - acc.x > 0 ? 'Left' : 'Right';
+    } else if (accY > accX && accY > accZ) {
+        direction = lastY - acc.y > 0 ? 'Up' : 'Down';
+    }
 }
