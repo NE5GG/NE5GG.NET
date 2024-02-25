@@ -12,10 +12,18 @@
     background: black;
 }
 
-.food {
+.dot, .food {
     position: absolute;
     height: 20px;
     width: 20px;
+    border-radius: 50%; /* make the blocks circular */
+}
+
+.dot {
+    background: black;
+}
+
+.food {
     background: red;
     box-shadow: 0 0 10px red, 0 0 20px red; /* glow effect */
 }
