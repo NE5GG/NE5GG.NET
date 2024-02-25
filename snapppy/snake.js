@@ -95,8 +95,10 @@ function changeDirection(acc, lastX, lastY, lastZ) {
     var accZ = Math.abs(lastZ - acc.z);
 
     if (accX > accY && accX > accZ) {
+        // If the shake is primarily horizontal, change the direction to 'Left' or 'Right'
         direction = lastX - acc.x > 0 ? 'Left' : 'Right';
     } else if (accY > accX && accY > accZ) {
+        // If the shake is primarily vertical, change the direction to 'Up' or 'Down'
         direction = lastY - acc.y > 0 ? 'Up' : 'Down';
     }
 }
