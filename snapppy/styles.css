@@ -17,6 +17,7 @@
     height: 20px;
     width: 20px;
     background: red;
+    box-shadow: 0 0 10px red, 0 0 20px red; /* glow effect */
 }
 
 body {
