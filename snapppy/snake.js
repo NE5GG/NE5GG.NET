@@ -40,6 +40,29 @@ function updateGame() {
         };
     }
 
+    // Update the game board
+    var gameBoard = document.getElementById('game-board');
+    gameBoard.innerHTML = ''; // clear the game board
+
+    // Draw the snake
+    for (var i = 0; i < snake.length; i++) {
+        var dot = document.createElement('div');
+        dot.style.left = `${snake[i].left}px`;
+        dot.style.top = `${snake[i].top}px`;
+        dot.className = 'dot';
+        gameBoard.appendChild(dot);
+    }
+
+    // Draw the food
+    if (food) {
+        var foodElement = document.createElement('div');
+        foodElement.style.left = `${food.left}px`;
+        foodElement.style.top = `${food.top}px`;
+        foodElement.className = 'food';
+        gameBoard.appendChild(foodElement);
+    }
+}
+
     // TODO: Update the game board
 }
 
