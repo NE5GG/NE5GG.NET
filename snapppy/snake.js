@@ -80,7 +80,7 @@ window.addEventListener('devicemotion', function (e) {
     }
 
     if (moveCounter > 2) {
-        changeDirection(acc); // change direction of the snake
+        changeDirection(acc, lastX, lastY, lastZ); // pass acc, lastX, lastY, lastZ to changeDirection
         moveCounter = 0;
     }
 
@@ -89,7 +89,7 @@ window.addEventListener('devicemotion', function (e) {
     lastZ = acc.z;
 });
 
-function changeDirection(acc) {
+function changeDirection(acc, lastX, lastY, lastZ) {
     var accX = Math.abs(lastX - acc.x);
     var accY = Math.abs(lastY - acc.y);
     var accZ = Math.abs(lastZ - acc.z);
