@@ -16,13 +16,6 @@
     margin: 0 auto; /* center the game board */
 }
 
-.dot {
-    position: absolute;
-    height: 20px;
-    width: 20px;
-    background: black;
-}
-
 .dot, .food {
     position: absolute;
     height: 20px;
@@ -61,18 +54,6 @@ body {
     background-size: 200% 200%;
     animation: gradientWave 6s ease infinite;
     font-family: Arial, sans-serif;
-}
-
-#container {
-    text-align: center;
-}
-
-#game-board {
-    position: relative;
-    height: 400px;
-    width: 400px;
-    border: 1px solid black;
-    margin: 0 auto; /* center the game board */
 }
 
 #score {
