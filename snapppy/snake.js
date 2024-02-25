@@ -116,3 +116,44 @@ document.addEventListener('touchend', function(e) {
 }, false);
 
 var intervalId = setInterval(updateGame, 200);
+
+var lastX, lastY, lastZ;
+var moveCounter = 0;
+
+window.addEventListener('devicemotion', function (e) {
+    var acc = e.accelerationIncludingGravity;
+    if (!acc) {
+        return;
+    }
+
+    if (!lastX) {
+        lastX = acc.x;
+        lastY = acc.y;
+        lastZ = acc.z;
+        return;
+    }
+
+    var deltaX = Math.abs(acc.x - lastX);
+    var deltaY = Math.abs(acc.y - lastY);
+    var deltaZ = Math.abs(acc.z - lastZ);
+
+    if (deltaX + deltaY + deltaZ > 15) {
+        moveCounter++;
+    } else {
+        moveCounter = Math.max(0, --moveCounter);
+    }
+
+    if (moveCounter > 2) {
+        changeDirection(); // change direction of the snake
+        moveCounter = 0;
+    }
+
+    lastX = acc.x;
+    lastY = acc.y;
+    lastZ = acc.z;
+});
+
+function changeDirection() {
+    // Change the direction of the snake
+    // This function needs to be implemented based on your game logic
+}
