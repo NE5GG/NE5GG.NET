@@ -68,3 +68,51 @@ document.addEventListener('keydown', function(e) {
 });
 
 var intervalId = setInterval(updateGame, 200);
+// Your existing Snake game code...
+
+document.addEventListener('keydown', function(e) {
+    switch(e.key) {
+        case 'ArrowUp': direction = 'Up'; break;
+        case 'ArrowDown': direction = 'Down'; break;
+        case 'ArrowLeft': direction = 'Left'; break;
+        case 'ArrowRight': direction = 'Right'; break;
+    }
+});
+
+// Touch control code...
+
+var touchStartX = 0;
+var touchStartY = 0;
+
+document.addEventListener('touchstart', function(e) {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+}, false);
+
+document.addEventListener('touchend', function(e) {
+    var touchEndX = e.changedTouches[0].clientX;
+    var touchEndY = e.changedTouches[0].clientY;
+    var diffX = touchStartX - touchEndX;
+    var diffY = touchStartY - touchEndY;
+    if (Math.abs(diffX) > Math.abs(diffY)) {
+        // Horizontal swipe
+        if (diffX > 0) {
+            // Swipe left
+            direction = 'Left';
+        } else {
+            // Swipe right
+            direction = 'Right';
+        }
+    } else {
+        // Vertical swipe
+        if (diffY > 0) {
+            // Swipe up
+            direction = 'Up';
+        } else {
+            // Swipe down
+            direction = 'Down';
+        }
+    }
+}, false);
+
+var intervalId = setInterval(updateGame, 200);
