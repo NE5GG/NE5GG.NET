@@ -15,11 +15,13 @@
                 <li><a href="sass.html">Sass</a></li>
                 <li><a href="badges.html">Components</a></li>
                 <li><a href="collapsible.html">JavaScript</a></li>
-                <li><a href="#"><i class="material-icons">account_circle</i></a></li>
+                <li><a href="#"><img class="account-icon" src="default-icon.png"></a></li>
             </ul>
         </div>
     </nav>
 
+    <!-- Include Google Sign-In -->
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
 
     <footer class="page-footer">
         <div class="container">
@@ -31,5 +33,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!-- Include your JavaScript file -->
     <script src="marquee.js"></script>
+    <!-- Include Google's platform library -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <!-- Include your Google Sign-In JavaScript file -->
+    <script src="google.js"></script>
 </body>
 </html>
