@@ -1,62 +1,60 @@
-#container {
-    text-align: center;
-    display: inline-block;
-    background: white;
-    padding: 20px;
-    border: 10px solid;
-    border-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
-    border-image-slice: 1;
-}
+var dotSize = 20;
+var gameBoardSize = 400;
+var direction = 'Right';
+var snake = [{ top: 0, left: 0 }];
+var food = null;
 
-#game-board {
-    position: relative;
-    height: 400px;
-    width: 400px;
-    border: 1px solid black;
-    margin: 0 auto; /* center the game board */
-}
-
-.dot, .food {
-    position: absolute;
-    height: 20px;
-    width: 20px;
-    border-radius: 50%; /* make the blocks circular */
-}
-
-.dot {
-    background: black;
-}
-
-.food {
-    background: red;
-    box-shadow: 0 0 10px red, 0 0 20px red; /* glow effect */
-}
-
-@keyframes gradientWave {
-    0% {
-        background-position: 0% 50%;
+function updateGame() {
+    // Update the position of the snake
+    var head = Object.assign({}, snake[0]); // copy head
+    switch(direction) {
+        case 'Up': head.top -= dotSize; break;
+        case 'Down': head.top += dotSize; break;
+        case 'Left': head.left -= dotSize; break;
+        case 'Right': head.left += dotSize; break;
     }
-    50% {
-        background-position: 100% 50%;
+    snake.unshift(head); // add new head to snake
+
+    // Check for food collision
+    if (food && food.left === head.left && food.top === head.top) {
+        food = null; // eat food
+    } else {
+        snake.pop(); // remove tail
     }
-    100% {
-        background-position: 0% 50%;
+
+    // Check for self collision
+    if (snake.find((dot, index) => index !== 0 && dot.left === head.left && dot.top === head.top)) {
+        gameOver();
     }
+
+    // Check for wall collision
+    if (head.left < 0 || head.top < 0 || head.left === gameBoardSize || head.top === gameBoardSize) {
+        gameOver();
+    }
+
+    // Randomly place food
+    if (!food) {
+        food = { 
+            left: Math.floor(Math.random() * gameBoardSize / dotSize) * dotSize, 
+            top: Math.floor(Math.random() * gameBoardSize / dotSize) * dotSize 
+        };
+    }
+
+    // TODO: Update the game board
 }
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background: radial-gradient(circle, teal, white, teal);
-    background-size: 200% 200%;
-    animation: gradientWave 6s ease infinite;
-    font-family: Arial, sans-serif;
+function gameOver() {
+    clearInterval(intervalId);
+    alert('Game Over!');
 }
 
-#score {
-    display: block;
-    margin-top: 20px;
-}
+document.addEventListener('keydown', function(e) {
+    switch(e.key) {
+        case 'ArrowUp': direction = 'Up'; break;
+        case 'ArrowDown': direction = 'Down'; break;
+        case 'ArrowLeft': direction = 'Left'; break;
+        case 'ArrowRight': direction = 'Right'; break;
+    }
+});
+
+var intervalId = setInterval(updateGame, 200);
