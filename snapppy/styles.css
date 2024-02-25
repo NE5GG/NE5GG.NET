@@ -28,12 +28,15 @@
     box-shadow: 0 0 10px red, 0 0 20px red; /* glow effect */
 }
 
-@keyframes move {
+@keyframes gradientWave {
     0% {
-        background-position: 0 bottom;
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
     }
     100% {
-        background-position: 1000px bottom;
+        background-position: 0% 50%;
     }
 }
 
@@ -43,13 +46,9 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background: linear-gradient(45deg, teal 25%, transparent 25%) -50px 0,
-                linear-gradient(45deg, transparent 75%, teal 75%) -50px 0,
-                linear-gradient(45deg, transparent 75%, teal 75%),
-                linear-gradient(45deg, teal 25%, transparent 25%);
-    background-size: 100px 100px;
-    background-color: teal;
-    animation: move 4s linear infinite;
+    background: radial-gradient(circle, teal, white, teal);
+    background-size: 200% 200%;
+    animation: gradientWave 6s ease infinite;
     font-family: Arial, sans-serif;
 }
 
