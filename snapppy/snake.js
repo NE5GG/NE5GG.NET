@@ -1,104 +1,62 @@
-var dotSize = 20;
-var gameBoardSize = 400;
-var direction = 'Right';
-var snake = [{ top: 0, left: 0 }];
-var food = null;
+#container {
+    text-align: center;
+    display: inline-block;
+    background: white;
+    padding: 20px;
+    border: 10px solid;
+    border-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+    border-image-slice: 1;
+}
 
-// Your existing Snake game code...
+#game-board {
+    position: relative;
+    height: 400px;
+    width: 400px;
+    border: 1px solid black;
+    margin: 0 auto; /* center the game board */
+}
 
-document.addEventListener('keydown', function(e) {
-    switch(e.key) {
-        case 'ArrowUp': direction = 'Up'; break;
-        case 'ArrowDown': direction = 'Down'; break;
-        case 'ArrowLeft': direction = 'Left'; break;
-        case 'ArrowRight': direction = 'Right'; break;
+.dot, .food {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%; /* make the blocks circular */
+}
+
+.dot {
+    background: black;
+}
+
+.food {
+    background: red;
+    box-shadow: 0 0 10px red, 0 0 20px red; /* glow effect */
+}
+
+@keyframes gradientWave {
+    0% {
+        background-position: 0% 50%;
     }
-});
-
-// Touch control code...
-
-var touchStartX = 0;
-var touchStartY = 0;
-
-document.addEventListener('touchstart', function(e) {
-    touchStartX = e.touches[0].clientX;
-    touchStartY = e.touches[0].clientY;
-}, false);
-
-document.addEventListener('touchend', function(e) {
-    var touchEndX = e.changedTouches[0].clientX;
-    var touchEndY = e.changedTouches[0].clientY;
-    var diffX = touchStartX - touchEndX;
-    var diffY = touchStartY - touchEndY;
-    if (Math.abs(diffX) > Math.abs(diffY)) {
-        // Horizontal swipe
-        if (diffX > 0) {
-            // Swipe left
-            direction = 'Left';
-        } else {
-            // Swipe right
-            direction = 'Right';
-        }
-    } else {
-        // Vertical swipe
-        if (diffY > 0) {
-            // Swipe up
-            direction = 'Up';
-        } else {
-            // Swipe down
-            direction = 'Down';
-        }
+    50% {
+        background-position: 100% 50%;
     }
-}, false);
-
-var intervalId = setInterval(updateGame, 200);
-
-var lastX, lastY, lastZ;
-var moveCounter = 0;
-
-window.addEventListener('devicemotion', function (e) {
-    var acc = e.accelerationIncludingGravity;
-    if (!acc) {
-        return;
+    100% {
+        background-position: 0% 50%;
     }
+}
 
-    if (!lastX) {
-        lastX = acc.x;
-        lastY = acc.y;
-        lastZ = acc.z;
-        return;
-    }
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: radial-gradient(circle, teal, white, teal);
+    background-size: 200% 200%;
+    animation: gradientWave 6s ease infinite;
+    font-family: Arial, sans-serif;
+}
 
-    var deltaX = Math.abs(acc.x - lastX);
-    var deltaY = Math.abs(acc.y - lastY);
-    var deltaZ = Math.abs(acc.z - lastZ);
-
-    if (deltaX + deltaY + deltaZ > 15) {
-        moveCounter++;
-    } else {
-        moveCounter = Math.max(0, --moveCounter);
-    }
-
-    if (moveCounter > 2) {
-        changeDirection(acc, lastX, lastY, lastZ); // pass acc, lastX, lastY, lastZ to changeDirection
-        moveCounter = 0;
-    }
-
-    lastX = acc.x;
-    lastY = acc.y;
-    lastZ = acc.z;
-});
-
-function changeDirection(acc, lastX, lastY, lastZ) {
-    var accX = Math.abs(lastX - acc.x);
-    var accY = Math.abs(lastY - acc.y);
-    var accZ = Math.abs(lastZ - acc.z);
-
-    if (accX > accY && accX > accZ) {
-        // If the shake is primarily horizontal, change the direction to 'Left' or 'Right'
-        direction = lastX - acc.x > 0 ? 'Left' : 'Right';
-    } else if (accY > accX && accY > accZ) {
-        // If the shake is primarily vertical, change the direction to 'Up' or 'Down'
-        direction = lastY - acc.y > 0 ? 'Up' : 'Down';
-    }
+#score {
+    display: block;
+    margin-top: 20px;
 }
