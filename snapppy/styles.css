@@ -18,3 +18,30 @@
     width: 20px;
     background: red;
 }
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+#container {
+    text-align: center;
+}
+
+#game-board {
+    position: relative;
+    height: 400px;
+    width: 400px;
+    border: 1px solid black;
+    margin: 0 auto; /* center the game board */
+}
+
+#score {
+    display: block;
+    margin-top: 20px;
+}
