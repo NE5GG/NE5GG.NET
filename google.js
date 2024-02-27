@@ -1,7 +1,7 @@
 function initiateOneTap() {
     // Configure Google One Tap options
     const options = {
-      client_id: "YOUR_CLIENT_ID",
+      client_id: "214544660549-gc2jnv96ka62tu1o2aqpkrtb8egsefhs.apps.googleusercontent.com",
       context: "signin",
       scope: "profile", // Request profile information from Google
     };
