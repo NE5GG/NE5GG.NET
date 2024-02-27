@@ -2,25 +2,26 @@ function initiateOneTap() {
   // Configure Google One Tap options
   const options = {
     client_id: "203363874589-dtjqndbokl6kq0ekq1q4fssa5vn6sphe.apps.googleusercontent.com",
-    context: "signin",
-    scope: "profile", // Request profile information (name and picture)
+    callback: function(response) {
+      // Handle the One Tap response
+      const profile = response.getBasicProfile();
+      const imageUrl = profile.getImageUrl();
+
+      // Create a new img tag
+      const img = document.createElement('img');
+      img.src = imageUrl;
+      img.className = 'account-icon';
+      img.id = 'account_id';
+
+      // Replace the i tag with the img tag
+      const icon = document.getElementById('account_id');
+      icon.parentNode.replaceChild(img, icon);
+
+    },
+    prompt_parent_id: 'main_content', // The ID of the HTML element where the One Tap prompt will be displayed
   };
 
   // Initialize Google One Tap
-  window.gapi.load("signin2", (googleAuth) => {
-    googleAuth.init(options);
-
-    // Attach click handler to the existing button
-    const button = document.getElementById('account_id');
-    button.addEventListener('click', () => {
-      googleAuth.attachClickHandler(button, (googleUser) => {
-        const profile = googleUser.getBasicProfile();
-        const imageUrl = profile.getImageUrl();
-
-        
-          // Update the icon with the profile picture URL (if consent is granted)
-          document.getElementById('account_id').src = imageUrl;
-          });
-    });
-  });
+  window.google.accounts.id.initialize(options);
+  window.google.accounts.id.prompt(); // This will display the One Tap prompt
 }
