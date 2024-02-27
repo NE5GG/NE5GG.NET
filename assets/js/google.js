@@ -25,3 +25,6 @@ function initiateOneTap() {
   window.google.accounts.id.initialize(options);
   window.google.accounts.id.prompt(); // This will display the One Tap prompt
 }
+
+// Call initiateOneTap when the page loads
+window.onload = initiateOneTap;
