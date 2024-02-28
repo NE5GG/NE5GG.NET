@@ -5,6 +5,22 @@ var direction = 'Right';
 var snake = [{ top: 0, left: 0 }];
 var food = null;
 
+function setupAudioPlayer(audioId, buttonId) {
+    var audioElement = document.getElementById(audioId);
+    var playButton = document.getElementById(buttonId);
+    var playIcon = playButton.querySelector('i');
+
+    playButton.addEventListener('click', function() {
+        if (audioElement.paused) {
+            audioElement.play();
+            playIcon.className = 'fas fa-pause';
+        } else {
+            audioElement.pause();
+            playIcon.className = 'fas fa-play';
+        }
+    });
+}
+
 function updateGame() {
     // Update the position of the snake
     var head = Object.assign({}, snake[0]); // copy head
@@ -64,6 +80,7 @@ function updateGame() {
     }
 }
 
+setupAudioPlayer('backgroundmusic', 'playButton');
 function gameOver() {
     clearInterval(intervalId);
     alert('Game Over!');
@@ -118,3 +135,6 @@ document.addEventListener('touchend', function(e) {
         }
     }
 }, { passive: false });
+
+// call setupAudioPlayer function
+setupAudioPlayer('backgroundmusic', 'playButton');

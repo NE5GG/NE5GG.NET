@@ -1,0 +1,131 @@
+{
+    "backgroundMusic": [
+        {
+            "name": "Goa",
+            "url": "https://amoris.sknt.ru/goa",
+            "type": "audio/aac"
+        },
+        {
+            "name": "Dub Techno",
+            "url": "https://amoris.sknt.ru/dubtechno",
+            "type": "audio/aac"
+        },
+        {
+            "name": "Electronic",
+            "url": "https://amoris.sknt.ru/electronic",
+            "type": "audio/aac"
+        },
+        {
+            "name": "Dubstep",
+            "url": "https://amoris.sknt.ru/dubstep",
+            "type": "audio/aac"
+        },
+        {
+            "name": "DnB",
+            "url": "https://amoris.sknt.ru/dnb",
+            "type": "audio/aac"
+        },
+        {
+            "name": "Minimal",
+            "url": "https://amoris.sknt.ru/minimal",
+            "type": "audio/aac"
+        },
+        {
+            "name": "Deep Tech",
+            "url": "https://amoris.sknt.ru/deeptech",
+            "type": "audio/aac"
+        },
+        {
+            "name": "Ambient",
+            "url": "https://amoris.sknt.ru/ambient",
+            "type": "audio/aac"
+        },
+        {
+            "name": "IDM",
+            "url": "https://amoris.sknt.ru/idm",
+            "type": "audio/aac"
+        },
+        {
+            "name": "New Age",
+            "url": "https://amoris.sknt.ru/newage",
+            "type": "audio/aac"
+        },
+        {
+            "name": "Trip Hop",
+            "url": "https://amoris.sknt.ru/triphop",
+            "type": "audio/aac"
+        },
+        {
+            "name": "Techno",
+            "url": "https://amoris.sknt.ru/techno",
+            "type": "audio/aac"
+        },
+        {
+            "name": "Dub Techno Mix",
+            "url": "https://amoris.sknt.ru/dubtechnomix",
+            "type": "audio/aac"
+        },
+        {
+            "name": "Bible",
+            "url": "https://amoris.sknt.ru/bible",
+            "type": "audio/aac"
+        },
+        {
+            "name": "Electro",
+            "url": "https://amoris.sknt.ru/electro",
+            "type": "audio/aac"
+        },
+        {
+            "name": "Bass",
+            "url": "https://amoris.sknt.ru/bass",
+            "type": "audio/aac"
+        },
+        {
+            "name": "Breakbeat",
+            "url": "https://amoris.sknt.ru/breakbeat",
+            "type": "audio/aac"
+        },
+        {
+            "name": "Breaks",
+            "url": "https://amoris.sknt.ru/breaks",
+            "type": "audio/aac"
+        },
+        {
+            "name": "Breakcore",
+            "url": "https://amoris.sknt.ru/breakcore",
+            "type": "audio/aac"
+        },
+        {
+            "name": "Dub",
+            "url": "https://amoris.sknt.ru/dub",
+            "type": "audio/aac"
+        },
+        {
+            "name": "Reggae",
+            "url": "https://amoris.sknt.ru/reggae",
+            "type": "audio/aac"
+        },
+        {
+            "name": "DJ Pepe",
+            "url": "https://amoris.sknt.ru/djpepe",
+            "type": "audio/aac"
+        },
+        {
+            "name": "Trance",
+            "url": "https://anima.sknt.ru/trance",
+            "type": "audio/aac"
+        }
+    ],
+    "sounds": [
+        {
+            "name": "Sound 1",
+            "url": "https://example.com/sound1.wav",
+            "type": "audio/wav"
+        },
+        {
+            "name": "Sound 2",
+            "url": "https://example.com/sound2.wav",
+            "type": "audio/wav"
+        }
+    ]
+}
