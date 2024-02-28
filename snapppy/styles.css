@@ -2,7 +2,7 @@
     text-align: center;
     display: inline-block;
     background: white;
-    padding: 20px;
+    padding: 10px;
     border: 10px solid;
     border-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
     border-image-slice: 1;
@@ -48,9 +48,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 90vh;
     margin: 0;
-    background: radial-gradient(circle, teal, white, teal);
+    background: radial-gradient(circle, teal, rgb(234, 12, 241), teal);
     background-size: 200% 200%;
     animation: gradientWave 6s ease infinite;
     font-family: Arial, sans-serif;
@@ -58,5 +58,5 @@ body {
 
 #score {
     display: block;
-    margin-top: 20px;
+    margin-top: 10px;
 }
