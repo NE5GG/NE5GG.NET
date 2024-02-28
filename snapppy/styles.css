@@ -48,7 +48,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 85vh;
+    height: 100vh;
     margin: 0;
     background: radial-gradient(circle, teal, rgb(234, 12, 241), teal);
     background-size: 200% 200%;

@@ -4,6 +4,9 @@ var gameBoardSize = Math.min(gameBoard.offsetWidth, gameBoard.offsetHeight);
 var direction = 'Right';
 var snake = [{ top: 0, left: 0 }];
 var food = null;
+var music = document.getElementById('background-music');
+
+music.play();
 
 function updateGame() {
     // Update the position of the snake
