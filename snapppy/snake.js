@@ -12,8 +12,17 @@ function setupAudioPlayer(audioId, buttonId) {
 
     playButton.addEventListener('click', function() {
         if (audioElement.paused) {
-            audioElement.play();
-            playIcon.className = 'fas fa-pause';
+            var playPromise = audioElement.play();
+            if (playPromise !== undefined) {
+                playPromise.then(_ => {
+                    // Audio playback started
+                    playIcon.className = 'fas fa-pause';
+                })
+                .catch(error => {
+                    // Auto-play was prevented
+                    console.log('Play was prevented.');
+                });
+            }
         } else {
             audioElement.pause();
             playIcon.className = 'fas fa-play';
