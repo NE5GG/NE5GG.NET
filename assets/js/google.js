@@ -1,23 +1,24 @@
 const options = {
   client_id: "203363874589-dtjqndbokl6kq0ekq1q4fssa5vn6sphe.apps.googleusercontent.com",
   callback: function(response) {
-    // Handle the One Tap response
-    const profile = response.getProfile();
-    const imageUrl = profile.getImageUrl();
-    const name = profile.getName();
-    const email = profile.getEmail();
+    // Get the JWT from the response
+    const jwt = response.credential;
 
-    // Log the name and email
-    console.log('Name:', name);
-    console.log('Email:', email);
+    // Send the JWT to your server
+    fetch('/api/auth', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ jwt: jwt })
+    });
 
-    // Create a new img tag
+    // Update the profile picture
+    const imageUrl = response.imageUrl;
     const img = document.createElement('img');
     img.src = imageUrl;
     img.className = 'account-icon';
     img.id = 'account_id';
-
-    // Replace the i tag with the img tag
     const icon = document.getElementById('account_id');
     icon.parentNode.replaceChild(img, icon);
   },
