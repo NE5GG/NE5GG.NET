@@ -136,5 +136,6 @@ document.addEventListener('touchend', function(e) {
     }
 }, { passive: false });
 
-// call setupAudioPlayer function
-setupAudioPlayer('backgroundmusic', 'playButton');
+document.addEventListener('DOMContentLoaded', function() {
+    setupAudioPlayer('backgroundmusic', 'playButton');
+});
