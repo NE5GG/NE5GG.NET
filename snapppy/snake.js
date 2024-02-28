@@ -4,8 +4,6 @@ var gameBoardSize = Math.min(gameBoard.offsetWidth, gameBoard.offsetHeight);
 var direction = 'Right';
 var snake = [{ top: 0, left: 0 }];
 var food = null;
-var music = document.getElementById('background-music');
-var musicStarted = false;
 
 function updateGame() {
     // Update the position of the snake
@@ -66,9 +64,6 @@ function updateGame() {
     }
 }
 
-    // TODO: Update the game board
-
-
 function gameOver() {
     clearInterval(intervalId);
     alert('Game Over!');
@@ -81,10 +76,6 @@ document.addEventListener('keydown', function(e) {
         case 'ArrowLeft': direction = 'Left'; break;
         case 'ArrowRight': direction = 'Right'; break;
     }
-}
-if (!musicStarted) {
-    music.play();
-    musicStarted = true;
 });
 
 var intervalId = setInterval(updateGame, 200);
@@ -95,7 +86,6 @@ document.addEventListener('touchstart', function(e) {
     e.preventDefault();
     touchStartX = e.touches[0].clientX;
     touchStartY = e.touches[0].clientY;
-    music.play(); // Start the music
 }, { passive: false });
 
 document.addEventListener('touchmove', function(e) {
@@ -126,9 +116,5 @@ document.addEventListener('touchend', function(e) {
             // Swipe down
             direction = 'Down';
         }
-    }
-    if (!musicStarted) {
-        music.play();
-        musicStarted = true;
     }
 }, { passive: false });
