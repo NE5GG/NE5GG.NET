@@ -6,8 +6,6 @@ var snake = [{ top: 0, left: 0 }];
 var food = null;
 var music = document.getElementById('background-music');
 
-music.play();
-
 function updateGame() {
     // Update the position of the snake
     var head = Object.assign({}, snake[0]); // copy head
@@ -92,6 +90,7 @@ document.addEventListener('touchstart', function(e) {
     e.preventDefault();
     touchStartX = e.touches[0].clientX;
     touchStartY = e.touches[0].clientY;
+    music.play(); // Start the music
 }, { passive: false });
 
 document.addEventListener('touchmove', function(e) {
