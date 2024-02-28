@@ -85,11 +85,17 @@ var touchStartX = 0;
 var touchStartY = 0;
 
 document.addEventListener('touchstart', function(e) {
+    e.preventDefault();
     touchStartX = e.touches[0].clientX;
     touchStartY = e.touches[0].clientY;
-}, false);
+}, { passive: false });
+
+document.addEventListener('touchmove', function(e) {
+    e.preventDefault();
+}, { passive: false });
 
 document.addEventListener('touchend', function(e) {
+    e.preventDefault();
     var touchEndX = e.changedTouches[0].clientX;
     var touchEndY = e.changedTouches[0].clientY;
     var diffX = touchStartX - touchEndX;
@@ -113,4 +119,4 @@ document.addEventListener('touchend', function(e) {
             direction = 'Down';
         }
     }
-}, false);
+}, { passive: false });
