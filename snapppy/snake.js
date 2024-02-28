@@ -80,6 +80,11 @@ document.addEventListener('keydown', function(e) {
         case 'ArrowLeft': direction = 'Left'; break;
         case 'ArrowRight': direction = 'Right'; break;
     }
+}
+if (!musicStarted) {
+    music.play();
+    musicStarted = true;
+}
 });
 
 var intervalId = setInterval(updateGame, 200);
@@ -121,5 +126,9 @@ document.addEventListener('touchend', function(e) {
             // Swipe down
             direction = 'Down';
         }
+    }
+    if (!musicStarted) {
+        music.play();
+        musicStarted = true;
     }
 }, { passive: false });
