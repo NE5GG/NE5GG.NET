@@ -64,7 +64,7 @@ function updateGame() {
 }
 
     // TODO: Update the game board
-}
+
 
 function gameOver() {
     clearInterval(intervalId);
