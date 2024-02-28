@@ -1,6 +1,6 @@
 var dotSize = 20;
 var gameBoard = document.getElementById('game-board');
-var gameBoardSize = gameBoard.offsetWidth;
+var gameBoardSize = Math.min(gameBoard.offsetWidth, gameBoard.offsetHeight);
 var direction = 'Right';
 var snake = [{ top: 0, left: 0 }];
 var food = null;

@@ -10,8 +10,8 @@
 
 #game-board {
     position: relative;
-    height: 80vw;
-    width: 80vw;
+    height: 90vmin;
+    width: 90vmin;
     border: 1px solid black;
     margin: 5vw auto; /* center the game board */
 }
