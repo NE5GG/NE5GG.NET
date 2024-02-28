@@ -11,7 +11,7 @@
 #game-board {
     position: relative;
     height: 80vw;
-    width: 80w;
+    width: 80vw;
     border: 1px solid black;
     margin: 5vw auto; /* center the game board */
 }
