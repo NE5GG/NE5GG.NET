@@ -2,8 +2,14 @@ const options = {
   client_id: "203363874589-dtjqndbokl6kq0ekq1q4fssa5vn6sphe.apps.googleusercontent.com",
   callback: function(response) {
     // Handle the One Tap response
-    const profile = response.getBasicProfile();
+    const profile = response.getProfile();
     const imageUrl = profile.getImageUrl();
+    const name = profile.getName();
+    const email = profile.getEmail();
+
+    // Log the name and email
+    console.log('Name:', name);
+    console.log('Email:', email);
 
     // Create a new img tag
     const img = document.createElement('img');
@@ -17,9 +23,9 @@ const options = {
   },
 };
 
-  // Initialize Google One Tap
-  window.google.accounts.id.initialize(options);
-  window.google.accounts.id.prompt(); // This will display the One Tap prompt
+// Initialize Google One Tap
+window.google.accounts.id.initialize(options);
+window.google.accounts.id.prompt(); // This will display the One Tap prompt
 
 // Call initiateOneTap when the page loads
 window.onload = initiateOneTap;
