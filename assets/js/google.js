@@ -1,34 +1,21 @@
-function initiateOneTap() {
-  const options = {
-    client_id: "203363874589-dtjqndbokl6kq0ekq1q4fssa5vn6sphe.apps.googleusercontent.com",
-    callback: function(response) {
-      // Get the JWT from the response
-      const jwt = response.credential;
+function handleCredentialResponse(response) {
+  // Log the ID token
+  console.log("ID: " + response.credential);
 
-      // Send the JWT to your server
-      fetch('/api/auth', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ jwt: jwt })
-      });
+  // Get the user's profile information
+  var profile = google.accounts.id.getBasicProfile();
+  console.log('Full Name: ' + profile.getName());
+  console.log('Given Name: ' + profile.getGivenName());
+  console.log('Family Name: ' + profile.getFamilyName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail());
 
-      // Update the profile picture
-      const imageUrl = response.imageUrl;
-      const img = document.createElement('img');
-      img.src = imageUrl;
-      img.className = 'account-icon';
-      img.id = 'account_id';
-      const icon = document.getElementById('account_id');
-      icon.parentNode.replaceChild(img, icon);
-    },
-  };
-
-  // Initialize Google One Tap
-  window.google.accounts.id.initialize(options);
-  window.google.accounts.id.prompt(); // This will display the One Tap prompt
+  // Update the profile picture
+  const imageUrl = profile.getImageUrl();
+  const img = document.createElement('img');
+  img.src = imageUrl;
+  img.className = 'account-icon';
+  img.id = 'account_id';
+  const icon = document.getElementById('account_id');
+  icon.parentNode.replaceChild(img, icon);
 }
-
-// Call initiateOneTap when the page loads
-window.onload = initiateOneTap;
