@@ -6,12 +6,16 @@ function handleCredentialResponse(response) {
   const fullName = response.name;
   const email = response.email;
 
-  // Split the full name into first and last name
-  const nameParts = fullName.split(' ');
-  const firstName = nameParts[0];
-  const lastName = nameParts.length > 1 ? nameParts[nameParts.length - 1] : '';
+  // Check if fullName is not undefined
+  if (fullName) {
+    // Split the full name into first and last name
+    const nameParts = fullName.split(' ');
+    const firstName = nameParts[0];
+    const lastName = nameParts.length > 1 ? nameParts[nameParts.length - 1] : '';
 
-  console.log('First Name: ' + firstName);
-  console.log('Last Name: ' + lastName);
+    console.log('First Name: ' + firstName);
+    console.log('Last Name: ' + lastName);
+  }
+
   console.log('Email: ' + email);
 }
