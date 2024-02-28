@@ -10,10 +10,10 @@
 
 #game-board {
     position: relative;
-    height: 400px;
-    width: 400px;
+    height: 90vw;
+    width: 90vw;
     border: 1px solid black;
-    margin: 0 auto; /* center the game board */
+    margin: 5vw auto; /* center the game board */
 }
 
 .dot, .food {
