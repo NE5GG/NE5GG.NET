@@ -5,6 +5,7 @@ var direction = 'Right';
 var snake = [{ top: 0, left: 0 }];
 var food = null;
 var music = document.getElementById('background-music');
+var musicStarted = false;
 
 function updateGame() {
     // Update the position of the snake
@@ -84,7 +85,6 @@ document.addEventListener('keydown', function(e) {
 if (!musicStarted) {
     music.play();
     musicStarted = true;
-}
 });
 
 var intervalId = setInterval(updateGame, 200);
