@@ -149,9 +149,12 @@ playButton.addEventListener('click', () => {
             .then(response => response.json())
             .then(data => {
                 var audioElement = document.getElementById('backgroundmusic');
+                var playButton = document.getElementById('playButton');
                 var track = data.backgroundMusic[this.value];
                 audioElement.src = track.url;
                 audioElement.type = track.type;
                 audioElement.load();
+                audioElement.play();
+                playButton.innerHTML = '<i class="fas fa-pause"></i>'; // Update button icon to pause
             });
     });
