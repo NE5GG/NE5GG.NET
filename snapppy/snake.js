@@ -131,3 +131,27 @@ playButton.addEventListener('click', () => {
       playButton.innerHTML = '<i class="fas fa-play"></i>'; // Update button icon to play
     }
   });
+
+  fetch('./json/audio.json')
+    .then(response => response.json())
+    .then(data => {
+        var select = document.getElementById('trackSelect');
+        data.backgroundMusic.forEach((track, index) => {
+            var option = document.createElement('option');
+            option.value = index;
+            option.text = track.name;
+            select.appendChild(option);
+        });
+    });
+
+    document.getElementById('trackSelect').addEventListener('change', function() {
+        fetch('./json/audio.json')
+            .then(response => response.json())
+            .then(data => {
+                var audioElement = document.getElementById('backgroundmusic');
+                var track = data.backgroundMusic[this.value];
+                audioElement.src = track.url;
+                audioElement.type = track.type;
+                audioElement.load();
+            });
+    });
