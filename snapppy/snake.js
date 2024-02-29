@@ -1,3 +1,5 @@
+const audioElement = document.getElementById('backgroundmusic');
+const playButton = document.getElementById('playButton');
 var dotSize = 20;
 var gameBoard = document.getElementById('game-board');
 var gameBoardSize = Math.min(gameBoard.offsetWidth, gameBoard.offsetHeight);
@@ -5,30 +7,6 @@ var direction = 'Right';
 var snake = [{ top: 0, left: 0 }];
 var food = null;
 
-function setupAudioPlayer(audioId, buttonId) {
-    var audioElement = document.getElementById(audioId);
-    var playButton = document.getElementById(buttonId);
-    var playIcon = playButton.querySelector('i');
-
-    playButton.addEventListener('click', function() {
-        if (audioElement.paused) {
-            var playPromise = audioElement.play();
-            if (playPromise !== undefined) {
-                playPromise.then(_ => {
-                    // Audio playback started
-                    playIcon.className = 'fas fa-pause';
-                })
-                .catch(error => {
-                    // Auto-play was prevented
-                    console.log('Play was prevented.');
-                });
-            }
-        } else {
-            audioElement.pause();
-            playIcon.className = 'fas fa-play';
-        }
-    });
-}
 
 function updateGame() {
     // Update the position of the snake
@@ -89,7 +67,6 @@ function updateGame() {
     }
 }
 
-setupAudioPlayer('backgroundmusic', 'playButton');
 function gameOver() {
     clearInterval(intervalId);
     alert('Game Over!');
@@ -145,6 +122,12 @@ document.addEventListener('touchend', function(e) {
     }
 }, { passive: false });
 
-document.addEventListener('DOMContentLoaded', function() {
-    setupAudioPlayer('backgroundmusic', 'playButton');
-});
+playButton.addEventListener('click', () => {
+    if (audioElement.paused) {
+      audioElement.play();
+      playButton.innerHTML = '<i class="fas fa-pause"></i>'; // Update button icon to pause
+    } else {
+      audioElement.pause();
+      playButton.innerHTML = '<i class="fas fa-play"></i>'; // Update button icon to play
+    }
+  });
