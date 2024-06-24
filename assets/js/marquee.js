@@ -20,4 +20,4 @@ async function fetchReport() {
 }
 
 fetchReport();
-setInterval(fetchReport, 5000000); // Update every 5 seconds (adjust as needed)
+setInterval(fetchReport, 60000000); // Update every 60 seconds (adjust as needed)
