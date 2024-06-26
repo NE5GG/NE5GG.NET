@@ -1,4 +1,4 @@
-const topBarCenterText = `NE5GG - fm05ok`;
+const topBarCenterText = `NE5GG - FM05OK`;
 // Menu items
 // Structure is as follows HTML Color code, Option, target URL, scaling 1=Original Size, side (optional, nothing is Left, "R" is Right)
 // The values are [color code, menu text, target link, scale factor, side],
@@ -56,20 +56,20 @@ const aURL = [
 // but you can replace the titles and the images with anything you want.
 const aIMG = [
   ["SATELLITE CAN",  "https://cdn.star.nesdis.noaa.gov/GOES16/GLM/SECTOR/can/EXTENT3/GOES16-CAN-EXTENT3-1125x560.gif"],
-    [    "Atlantic Outlook",
-    "https://www.nhc.noaa.gov/xgtwo/two_atl_2d0.png",
-    "https://www.nhc.noaa.gov/xgtwo/two_atl_7d0.png",
-    "https://www.nhc.noaa.gov/xgtwo/two_atl_0d0.png",
-  ],
   [    "Central Pacific Outlook",
-    "https://www.nhc.noaa.gov/xgtwo/two_cpac_2d0.png",
     "https://www.nhc.noaa.gov/xgtwo/two_cpac_7d0.png",
+    "https://www.nhc.noaa.gov/xgtwo/two_cpac_2d0.png",
     "https://www.nhc.noaa.gov/xgtwo/two_cpac_0d0.png",
   ],
   [    "Pacific Outlook",
-    "https://www.nhc.noaa.gov/xgtwo/two_pac_2d0.png",
     "https://www.nhc.noaa.gov/xgtwo/two_pac_7d0.png",
+    "https://www.nhc.noaa.gov/xgtwo/two_pac_2d0.png",
     "https://www.nhc.noaa.gov/xgtwo/two_pac_0d0.png",
+  ],
+  [    "Atlantic Outlook",
+    "https://www.nhc.noaa.gov/xgtwo/two_atl_7d0.png",
+    "https://www.nhc.noaa.gov/xgtwo/two_atl_2d0.png",
+    "https://www.nhc.noaa.gov/xgtwo/two_atl_0d0.png",
   ],
   [    "Wide",    
     "https://cdn.star.nesdis.noaa.gov/GOES18/ABI/SECTOR/tpw/GEOCOLOR/GOES18-TPW-GEOCOLOR-900x540.gif",
@@ -78,13 +78,12 @@ const aIMG = [
   ],
   [    "Western",    "https://cdn.star.nesdis.noaa.gov/GOES18/ABI/SECTOR/wus/GEOCOLOR/GOES18-WUS-GEOCOLOR-1000x1000.gif",
   ],
-  [    "Gulf of Mexico",    "https://cdn.star.nesdis.noaa.gov/GOES16/GLM/SECTOR/cgl/EXTENT3/GOES16-CGL-EXTENT3-600x600.gif",
+  [    "Gulf of Mexico",    "https://cdn.star.nesdis.noaa.gov/GOES16/ABI/SECTOR/gm/GEOCOLOR/GOES16-GM-GEOCOLOR-1000x1000.gif",
   ],
   [    "Eastern",    "https://cdn.star.nesdis.noaa.gov/GOES16/ABI/SECTOR/eus/GEOCOLOR/GOES16-EUS-GEOCOLOR-1000x1000.gif",
   ],
-  
-  ["Hawaii",    "https://cdn.star.nesdis.noaa.gov/GOES18/ABI/SECTOR/hi/GEOCOLOR/GOES18-HI-GEOCOLOR-600x600.gif",]
-  ["Atlantic GeoColor",  "https://cdn.star.nesdis.noaa.gov/GOES16/ABI/SECTOR/taw/GEOCOLOR/GOES16-TAW-GEOCOLOR-900x540.gif"],
-  ["Atlantic GeoColor",  "https://cdn.star.nesdis.noaa.gov/GOES16/ABI/SECTOR/taw/GEOCOLOR/GOES16-TAW-GEOCOLOR-900x540.gif"],
-  ["Atlantic GeoColor",  "https://cdn.star.nesdis.noaa.gov/GOES16/ABI/SECTOR/taw/GEOCOLOR/GOES16-TAW-GEOCOLOR-900x540.gif"],
+  ["Hawaii",    "https://cdn.star.nesdis.noaa.gov/GOES18/ABI/SECTOR/hi/GEOCOLOR/GOES18-HI-GEOCOLOR-600x600.gif",],
+  ["NE Pacific",  "https://cdn.star.nesdis.noaa.gov/GOES18/ABI/SECTOR/np/GEOCOLOR/GOES18-NP-GEOCOLOR-900x540.gif",],
+  ["Puerto Rico",  "https://cdn.star.nesdis.noaa.gov/GOES16/ABI/SECTOR/pr/GEOCOLOR/GOES16-PR-GEOCOLOR-600x600.gif",],
+  ["Caribbean",  "https://cdn.star.nesdis.noaa.gov/GOES16/ABI/SECTOR/car/GEOCOLOR/GOES16-CAR-GEOCOLOR-1000x1000.gif",],
 ];
