@@ -75,7 +75,10 @@ const aIMG = [
     "https://www.nhc.noaa.gov/xgtwo/two_pac_0d0.png",
   ],
   [
-    "Hawaii",    "https://cdn.star.nesdis.noaa.gov/GOES18/ABI/SECTOR/hi/GEOCOLOR/GOES18-HI-GEOCOLOR-600x600.gif",
+    "Wide",    
+    "https://cdn.star.nesdis.noaa.gov/GOES18/ABI/SECTOR/tpw/GEOCOLOR/GOES18-TPW-GEOCOLOR-900x540.gif",
+    "https://cdn.star.nesdis.noaa.gov/GOES16/ABI/SECTOR/eep/GEOCOLOR/GOES16-EEP-GEOCOLOR-900x540.gif",
+    "https://cdn.star.nesdis.noaa.gov/GOES16/ABI/SECTOR/taw/GEOCOLOR/GOES16-TAW-GEOCOLOR-900x540.gif",
   ],
   [
     "Western",    "https://cdn.star.nesdis.noaa.gov/GOES18/ABI/SECTOR/wus/GEOCOLOR/GOES18-WUS-GEOCOLOR-1000x1000.gif",
