@@ -17,7 +17,7 @@ const aURL = [
     "1",
     "R",
   ],
-  ["2196F3", "TIME.IS", "https://time.is/", "1", "R"],
+  ["2196F3", "TIME.IS", "https://time.is/", "1", "R",],
   [
     "2196F3",
     "WEATHER",
