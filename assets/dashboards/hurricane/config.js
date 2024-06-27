@@ -8,7 +8,7 @@ const aURL = [
   ["add10d", "BACK", "#", "1", "R",],
   ["ff9100", "Refresh", "#", "1",],
   ["0dd1a7", "Help", "#", "1",],
-  ["2196F3","NHC", "https://www.nhc.noaa.gov/?epac", "1",  ],
+  ["2196F3", "NHC", "https://www.nhc.noaa.gov/?epac", "1",],
   ["2196F3", "ACCUWEATHER", "https://www.accuweather.com/en/hurricane", "1",],
   [
     "2196F3",
@@ -41,7 +41,7 @@ const aURL = [
 // You can't add more items because there are only 12 placeholders on the dashboard
 // but you can replace the titles and the images with anything you want.
 const aIMG = [
-  ["SATELLITE CAN",  "https://cdn.star.nesdis.noaa.gov/GOES16/GLM/SECTOR/can/EXTENT3/GOES16-CAN-EXTENT3-1125x560.gif"],
+  ["SATELLITE CAN", "https://cdn.star.nesdis.noaa.gov/GOES16/GLM/SECTOR/can/EXTENT3/GOES16-CAN-EXTENT3-1125x560.gif",],
   [    "Central Pacific Outlook",
     "https://www.nhc.noaa.gov/xgtwo/two_cpac_7d0.png",
     "https://www.nhc.noaa.gov/xgtwo/two_cpac_2d0.png",
