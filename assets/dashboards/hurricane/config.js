@@ -8,7 +8,6 @@ const aURL = [
   ["add10d", "BACK", "#", "1", "R"],
   ["ff9100", "Refresh", "#", "1"],
   ["0dd1a7", "Help", "#", "1"],
-  ["2196F3", "PREPARE", "https://www.noaa.gov/hurricane-prep", "1"],
   ["2196F3","NHC", "https://www.nhc.noaa.gov/?epac", "1",  ],
   ["2196F3", "ACCUWEATHER", "https://www.accuweather.com/en/hurricane", "1",],
   [
